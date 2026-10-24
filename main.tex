@@ -1,0 +1,341 @@
+% =====================================================================
+%  Práctica 2 · Informática y Edición Digital
+%  Documento LaTeX con la clase "book"
+%  Compilar: pdflatex -> bibtex -> pdflatex -> pdflatex
+% =====================================================================
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+% --- Idioma y codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla,es-noshorthands]{babel}
+\usepackage{lmodern}
+
+% --- Paquetes ---
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}      % imágenes
+\usepackage{booktabs}      % tablas con mejor aspecto
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}      % encabezados y pies personalizados
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{figuras/}}
+
+% --- Datos del documento (cambia aquí tu nombre) ---
+\newcommand{\autor}{Nombre y Apellidos}
+\newcommand{\asignatura}{Informática y Edición Digital}
+
+\title{\Huge\textbf{Quemar libros para alimentar máquinas}\\[0.6em]
+       \Large La inteligencia artificial y la destrucción de libros\\
+       como negocio: el caso \textit{Project Panama}}
+\author{\autor\\[0.3em]\normalsize \asignatura}
+\date{\today}
+
+% --- Encabezados y pies de página personalizados ---
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\fancyhead[LE]{\small\leftmark}
+\fancyhead[RO]{\small\rightmark}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[C]{\footnotesize\textit{Práctica 2 -- \asignatura}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Las páginas de inicio de capítulo usan el estilo "plain": también lo personalizamos
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\footnotesize\textit{Práctica 2 -- \asignatura}}
+  \fancyfoot[LE,RO]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+\frontmatter
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ---------------------------------------------------------------------
+\mainmatter
+
+\chapter{Introducción}
+
+\begin{flushright}
+\small\textit{``Allí donde se queman libros, se acaba quemando también a las personas.''}\\
+--- Heinrich Heine, \textit{Almansor} (1821)
+\end{flushright}
+
+La destrucción de libros ha acompañado a la humanidad desde la Antigüedad: la
+Biblioteca de Alejandría, las hogueras de la Inquisición o la quema de libros de
+1933 en Berlín son ejemplos que Fernando Báez recoge en su historia universal del
+\textit{memoricidio} \cite{baez2004}. En la literatura, Ray Bradbury imaginó en
+\textit{Fahrenheit 451} una sociedad donde los bomberos no apagan incendios, sino
+que queman libros \cite{bradbury1953}.
+
+En 2025 y 2026 apareció una versión inesperada de esta historia. Unos documentos
+judiciales revelaron que una empresa de \textbf{inteligencia artificial} (IA)
+había comprado millones de libros en papel, les había cortado el lomo, había
+escaneado sus páginas y había enviado el papel a reciclar. Todo ello para
+\textbf{entrenar un modelo de lenguaje} y competir en uno de los mercados más
+lucrativos del momento \cite{arstechnica2025,euronews2026}.
+
+Conviene precisar desde el principio que \emph{nadie prendió fuego a ningún
+libro}\footnote{El título de este trabajo usa ``quemar'' como metáfora. Los libros
+se guillotinaban y su papel se reciclaba; no se incineraban.}. Aun así, creo que
+la comparación es útil para pensar qué valor damos al libro como objeto y como
+memoria cultural cuando se convierte en simple materia prima de un negocio.
+
+\section{Objetivos del trabajo}
+
+Este documento tiene tres objetivos:
+
+\begin{enumerate}
+  \item \textbf{Explicar} qué se sabe del llamado \textit{Project Panama} y del
+        juicio \textit{Bartz contra Anthropic}.
+  \item \textbf{Situar} el caso dentro del debate más amplio sobre los derechos de
+        autor y el entrenamiento de la IA.
+  \item \textbf{Aportar mi valoración personal} sobre si este modelo de negocio es
+        aceptable.
+\end{enumerate}
+
+% ---------------------------------------------------------------------
+\chapter{Por qué la IA necesita libros}
+
+\section{Modelos de lenguaje y datos de entrenamiento}
+
+Los grandes modelos de lenguaje (en inglés, \textit{Large Language Models} o LLM)
+se basan en la arquitectura \textit{Transformer} \cite{vaswani2017}. Se entrenan
+para predecir la siguiente palabra de un texto a partir de cantidades enormes de
+datos. Se ha comprobado que, al aumentar el tamaño del modelo y del corpus, estos
+sistemas adquieren capacidades sorprendentes \cite{brown2020}.
+
+\subsection{El valor especial del libro}
+
+No todos los textos valen lo mismo para entrenar una IA. Los libros tienen
+características que los hacen especialmente valiosos:
+
+\begin{itemize}
+  \item Textos \textbf{largos y coherentes}, con argumentos que se desarrollan a lo
+        largo de cientos de páginas.
+  \item Un lenguaje \textbf{revisado y editado}, de mayor calidad que el de muchas
+        páginas web o redes sociales.
+  \item Una enorme \textbf{variedad temática}: ciencia, historia, ficción, técnica\ldots
+\end{itemize}
+
+{\small Por eso los libros se han convertido en un recurso codiciado por las
+empresas tecnológicas, que compiten por conseguir los mejores datos.}
+
+\section{El atajo de la piratería}
+
+Según la resolución judicial, antes de comprar libros en papel Anthropic había
+descargado millones de copias de \textbf{bibliotecas piratas} (las llamadas
+\textit{shadow libraries}) como LibGen o PiLiMi, además del conjunto Books3
+\cite{bartz2025}. La figura~\ref{fig:piratas} compara el tamaño de estas
+colecciones.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{libros_piratas.pdf}
+  \caption[Copias de libros descargadas de fuentes piratas]{Número aproximado de
+    copias de libros descargadas de fuentes piratas, según la resolución del caso
+    \textit{Bartz}, comparado con las obras cubiertas por el acuerdo final
+    (elaboración propia a partir de \cite{bartz2025,npr2025}).}
+  \label{fig:piratas}
+\end{figure}
+
+Meta se enfrentó a acusaciones parecidas por usar LibGen para entrenar sus modelos
+Llama \cite{kadrey2025}. Estos casos demuestran que la carrera por los datos llevó
+a varias empresas a \textit{tomar primero y preguntar después}.
+
+% ---------------------------------------------------------------------
+\chapter{El caso \textit{Project Panama}}
+
+\section{Comprar, cortar, escanear y tirar}
+
+En febrero de 2024 Anthropic contrató a Tom Turvey, antiguo responsable de
+acuerdos de Google Books, para conseguir legalmente \textit{todos los libros del
+mundo}. Un documento interno de abril de ese año resumía así el proyecto:
+\textit{``Project Panama is our effort to destructively scan all the books in the
+world''} \cite{euronews2026}.
+
+El procedimiento, que se resume en la figura~\ref{fig:proceso}, era industrial:
+
+\begin{enumerate}
+  \item Se compraban \textbf{libros usados} al por mayor, gastando decenas de
+        millones de dólares.
+  \item Una guillotina industrial \textbf{cortaba el lomo} para separar las hojas.
+  \item Las hojas sueltas pasaban por \textbf{escáneres de alta velocidad}.
+  \item El papel restante se enviaba a \textbf{reciclar}.
+  \item Las copias digitales se usaban para \textbf{entrenar} a Claude, el modelo de
+        la empresa.
+\end{enumerate}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{proceso.pdf}
+  \caption[El proceso de escaneo destructivo]{Las cinco fases del escaneo
+    destructivo descrito en los documentos judiciales (elaboración propia).}
+  \label{fig:proceso}
+\end{figure}
+
+Desde el punto de vista económico la lógica es clara: escanear hojas sueltas es
+mucho \textbf{más rápido y barato} que escanear un libro encuadernado sin dañarlo,
+que es lo que hacía Google Books\footnote{Google Books digitalizó millones de
+libros de bibliotecas desde 2004 con escáneres que pasaban las páginas sin
+destruir los ejemplares, que volvían a las estanterías.}. El ahorro se paga con la
+desaparición del ejemplar físico.
+
+\section{Lo que dijeron los tribunales}
+
+El 23 de junio de 2025 el juez William Alsup dictó una resolución con dos
+conclusiones muy distintas \cite{bartz2025}:
+
+\begin{description}
+  \item[Escaneo de libros comprados:] es \textit{fair use} (uso legítimo). El
+        juez consideró que entrenar una IA es un uso \emph{transformador}, y que
+        cambiar el formato de un libro comprado legalmente, destruyendo el
+        original, no crea copias adicionales.
+  \item[Biblioteca pirata:] \textbf{no} es uso legítimo. Guardar millones de libros
+        descargados ilegalmente vulneraba los derechos de los autores.
+\end{description}
+
+Ante el riesgo de una indemnización enorme, la empresa llegó a un acuerdo en
+septiembre de 2025: \textbf{1\,500 millones de dólares}, unos 3\,000 dólares por
+cada una de las cerca de 500\,000 obras afectadas \cite{npr2025}. El acuerdo
+recibió la aprobación definitiva en julio de 2026 \cite{latimes2026}. La
+tabla~\ref{tab:cronologia} resume las fechas más importantes.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Cronología del caso]{Cronología del caso \textit{Bartz contra Anthropic}
+    y de algunos antecedentes.}
+  \label{tab:cronologia}
+  \begin{tabular}{@{}lp{0.68\textwidth}@{}}
+    \toprule
+    \textbf{Fecha} & \textbf{Acontecimiento} \\
+    \midrule
+    2004           & Google empieza a digitalizar libros sin destruirlos (Google Books). \\
+    2021--2022     & Anthropic descarga Books3, LibGen y PiLiMi. \\
+    Febrero 2024   & Contratación de Tom Turvey; arranca \textit{Project Panama}. \\
+    Agosto 2024    & Los autores A.~Bartz, C.~Graeber y K.~W.~Johnson presentan la demanda. \\
+    23 junio 2025  & Resolución del juez Alsup sobre el uso legítimo. \\
+    25 junio 2025  & Resolución en \textit{Kadrey contra Meta}. \\
+    Septiembre 2025 & Se anuncia el acuerdo de 1\,500 millones de dólares. \\
+    2026           & Se hacen públicos los documentos internos de \textit{Project Panama}. \\
+    Julio 2026     & Aprobación definitiva del acuerdo. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------
+\chapter{Análisis: ¿quién gana y quién pierde?}
+
+\section{Comparación de modelos de digitalización}
+
+La tabla~\ref{tab:comparacion} compara las tres formas de conseguir libros que han
+aparecido en este trabajo.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Comparación de formas de obtener libros]{Comparación de tres formas de
+    obtener libros para entrenar una IA (valoración propia).}
+  \label{tab:comparacion}
+  \begin{tabularx}{\textwidth}{@{}lXXX@{}}
+    \toprule
+    & \textbf{Descarga pirata} & \textbf{Escaneo destructivo} & \textbf{Escaneo no destructivo} \\
+    \midrule
+    Coste           & Casi nulo        & Medio            & Alto \\
+    Velocidad       & Inmediata        & Muy alta         & Lenta \\
+    Legalidad (EE.\,UU.) & Ilegal      & Uso legítimo     & Uso legítimo \\
+    Pago al autor   & Ninguno          & Ninguno (libros de segunda mano) & Depende del acuerdo \\
+    Libro físico    & Se conserva      & \textcolor{red}{\textbf{Se destruye}} & Se conserva \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{Los perdedores}
+
+\begin{itemize}
+  \item \textbf{Los autores}: cuando se compra un libro usado, el autor no cobra
+        nada, aunque su obra acabe alimentando un producto valorado en miles de
+        millones.
+  \item \textbf{El patrimonio cultural}: aunque los documentos hablan sobre todo de
+        libros usados comprados en grandes lotes, en redes circularon rumores de
+        que también se destruían ejemplares raros, algo que verificadores como
+        Snopes han analizado \cite{snopes2026}.
+  \item \textbf{El público}: las copias digitales no se comparten; se quedan en los
+        servidores de la empresa.
+\end{itemize}
+
+\section{El contexto legal}
+
+El caso no es único. La Oficina de Derechos de Autor de EE.\,UU. ha estudiado si
+entrenar IA con obras protegidas es legal y concluye que la respuesta depende de
+cada caso \cite{copyrightoffice2025}. Expertas como Pamela Samuelson llevan años
+advirtiendo de que la IA generativa obliga a replantear los derechos de autor
+\cite{samuelson2023}.
+
+% ---------------------------------------------------------------------
+\chapter{Valoración personal}
+
+\begin{center}
+  \Large\textbf{¿Es aceptable destruir libros para ganar dinero?}
+\end{center}
+
+\begin{flushleft}
+En mi opinión, el caso \textit{Project Panama} muestra muy bien cómo funciona hoy
+la industria tecnológica: \textbf{la ley va siempre por detrás}. Lo primero fue
+la piratería, y sólo cuando el riesgo legal se hizo evidente se buscó una
+alternativa ``legal''. Pero que algo sea legal no significa que sea correcto.
+\end{flushleft}
+
+Me parece especialmente preocupante que la destrucción del libro físico se
+eligiera por razones de \textit{coste}. Existían técnicas para digitalizar sin
+destruir, como demostró Google Books, pero eran más lentas y caras. Por tanto, el
+motivo no era técnico, sino \textbf{económico}: maximizar el beneficio y ganar
+velocidad en la competencia con otras empresas.
+
+También creo que hay que evitar el alarmismo. Un ejemplar usado de una novela
+superventas no es un incunable, y muchos de esos libros probablemente habrían
+acabado igualmente en una trituradora. El problema no es tanto cada libro
+concreto como el \textit{mensaje} que se transmite: que el libro sólo vale por los
+datos que contiene, y que una vez extraídos ya no sirve para nada.
+
+{\footnotesize Paradójicamente, es la misma idea que denunciaba Bradbury: en
+\textit{Fahrenheit 451} los libros desaparecían porque la sociedad había dejado de
+valorarlos \cite{bradbury1953}.}
+
+\section{Propuestas}
+
+Para terminar, propongo algunas medidas que harían este negocio más justo:
+
+\begin{enumerate}
+  \item Exigir \textbf{transparencia} sobre los libros usados para entrenar cada
+        modelo.
+  \item Crear sistemas de \textbf{licencias} que paguen a los autores, igual que
+        las radios pagan por la música que emiten.
+  \item Obligar a que la digitalización masiva sea \textbf{no destructiva}, o al
+        menos que los ejemplares raros se donen a bibliotecas.
+  \item Que las copias digitales sirvan también para \textbf{fines públicos}, por
+        ejemplo para la conservación en bibliotecas nacionales.
+\end{enumerate}
+
+\begin{flushright}
+  \large\textit{Los libros no arden, pero pueden desaparecer igual.}
+\end{flushright}
+
+% ---------------------------------------------------------------------
+\backmatter
+\bibliographystyle{apalike}
+\bibliography{referencias}
+
+\end{document}
