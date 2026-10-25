@@ -27,7 +27,15 @@
 \newcommand{\autor}{Nombre y Apellidos}
 \newcommand{\asignatura}{Informática y Edición Digital}
 
-\title{\Huge\textbf{Quemar libros para alimentar máquinas}\\[0.6em]
+% Logo de la Universidad de Murcia: guarda la imagen como figuras/logo-umu.png
+% (si el archivo no existe, el documento compila igualmente sin logo)
+\newcommand{\logoumu}{%
+  \IfFileExists{figuras/logo-umu.png}%
+    {\includegraphics[width=0.6\textwidth]{logo-umu.png}\\[2.5em]}%
+    {}}
+
+\title{\logoumu
+       \Huge\textbf{Quemar libros para alimentar máquinas}\\[0.6em]
        \Large La inteligencia artificial y la destrucción de libros\\
        como negocio: el caso \textit{Project Panama}}
 \author{\autor\\[0.3em]\normalsize \asignatura}

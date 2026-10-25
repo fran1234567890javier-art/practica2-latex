@@ -7,6 +7,7 @@ Documento LaTeX (clase `book`) sobre la IA y el escaneo destructivo de libros (*
 | `main.tex` | Documento principal |
 | `referencias.bib` | Bibliografía BibTeX |
 | `figuras/` | Imágenes en PDF (se regeneran con `python3 scripts/generar_figuras.py`) |
+| `figuras/logo-umu.png` | Logo de la Universidad de Murcia que aparece en la portada (súbelo con este nombre exacto) |
 
 ## Compilar en Overleaf
 1. *New Project → Upload Project* y sube un ZIP de este repositorio.
