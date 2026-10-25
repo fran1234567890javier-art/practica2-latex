@@ -24,7 +24,7 @@
 \graphicspath{{figuras/}}
 
 % --- Datos del documento (cambia aquí tu nombre) ---
-\newcommand{\autor}{Nombre y Apellidos}
+\newcommand{\autor}{Anais Martín Lozano}
 \newcommand{\asignatura}{Informática y Edición Digital}
 
 % Logo de la Universidad de Murcia: sube la imagen como figuras/logo-umu
@@ -38,6 +38,7 @@
   \buscarlogo{figuras/logo-umu.jpeg}\buscarlogo{figuras/logo-umu.pdf}%
   \buscarlogo{logo-umu.png}\buscarlogo{logo-umu.jpg}%
   \buscarlogo{logo-umu.jpeg}\buscarlogo{logo-umu.pdf}%
+  \buscarlogo{figuras/images (1).png}\buscarlogo{images (1).png}%
   \ifx\logoumuarchivo\empty
     \fcolorbox{red}{white}{\parbox{0.6\textwidth}{\centering\normalsize\color{red}
       Falta el logo: sube la imagen a la carpeta\\
@@ -354,7 +355,189 @@ Para terminar, propongo algunas medidas que harían este negocio más justo:
 \end{flushright}
 
 % ---------------------------------------------------------------------
-\input{guion-video}
+% ---------------------------------------------------------------------
+%  Capítulo 6: guion del vídeo final
+% ---------------------------------------------------------------------
+\chapter{Idea y guion para el vídeo final}
+
+\section{La idea}
+
+El vídeo será una \textbf{recreación de algunas de las quemas de libros más
+importantes de la historia}. En cada una se explicará \emph{quién} quemó los
+libros, \emph{por qué} lo hizo y \emph{qué conocimiento} se perdió. Al final, la
+historia llegará al presente: los libros ya no arden, sino que se cortan, se
+escanean y se entregan a una inteligencia artificial.
+
+La idea central es una advertencia:
+
+\begin{center}
+  \large\textit{Antes se quemaban libros para que la gente no pensara.\\
+  Hoy se los damos a una máquina para no tener que pensar.}
+\end{center}
+
+Cuanto más conocimiento y más tareas le entregamos a la IA, más depende la
+gente de ella y menos usa su propia cabeza. Un estudio del MIT Media Lab
+observó que quienes escribían redacciones con ayuda de ChatGPT mostraban
+\textbf{menos actividad cerebral} y recordaban peor lo que habían escrito que
+quienes lo hacían sin ayuda \cite{kosmyna2025}\footnote{Es un estudio preliminar
+con 54 participantes y otros investigadores han criticado su metodología, así que
+en el vídeo se presentará como una señal de alarma, no como una prueba
+definitiva.}. El vídeo lleva esa idea al extremo: una IA que, a medida que la
+alimentamos, \textbf{nos va apagando}.
+
+\subsection{Datos generales}
+
+\begin{itemize}
+  \item \textbf{Duración}: entre 3 y 4 minutos.
+  \item \textbf{Formato}: escenas cortas con voz en \textit{off}, imágenes
+        recreadas y textos en pantalla.
+  \item \textbf{Tono}: serio y algo inquietante, que va de la historia al
+        presente.
+  \item \textbf{Elemento que se repite}: una \textbf{llama}. En cada escena es
+        más pequeña, hasta que al final se convierte en la luz de una pantalla
+        que se apaga.
+\end{itemize}
+
+\section{Las quemas que se recrearán}
+
+La tabla~\ref{tab:quemas} resume las quemas elegidas y el motivo de cada una.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Quemas de libros recreadas en el vídeo]{Quemas y destrucciones de
+    libros que se recrearán en el vídeo, con sus motivos
+    (elaboración propia a partir de \cite{baez2004}).}
+  \label{tab:quemas}
+  \small
+  \begin{tabularx}{\textwidth}{@{}llXX@{}}
+    \toprule
+    \textbf{Fecha} & \textbf{Lugar} & \textbf{Qué se destruyó} & \textbf{Por qué} \\
+    \midrule
+    Siglos I a.C.--IV d.C. & Alejandría & La mayor biblioteca de la Antigüedad
+      & Guerras, incendios y abandono a lo largo de siglos \\
+    213 a.C.  & China   & Libros de historia y filosofía (orden del emperador Qin Shi Huang)
+      & \textbf{Control político}: borrar las ideas contrarias al emperador \\
+    1258      & Bagdad  & La Casa de la Sabiduría, arrojada al río Tigris
+      & \textbf{Conquista}: los mongoles arrasaron la ciudad \\
+    1562      & Maní (México) & Códices mayas, quemados por fray Diego de Landa
+      & \textbf{Religión}: se consideraban obra del demonio \\
+    10 mayo 1933 & Berlín & Unos 20\,000 libros de autores ``no alemanes''
+      & \textbf{Ideología}: el nazismo quería eliminar a judíos y opositores \\
+    Agosto 1992 & Sarajevo & La Biblioteca Nacional de Bosnia
+      & \textbf{Guerra}: destruir la memoria e identidad de un pueblo \\
+    2024--2025 & EE.\,UU. & Millones de libros cortados y reciclados (\textit{Project Panama})
+      & \textbf{Beneficio económico}: entrenar una IA rápido y barato \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Todas tienen algo en común: \textbf{quien destruye los libros quiere controlar el
+conocimiento}. La diferencia es que en el último caso el conocimiento no
+desaparece, sino que pasa a estar \emph{dentro de una máquina privada}.
+
+\section{Guion escena a escena}
+
+\subsection*{Escena 0. Apertura (0:00--0:15)}
+\begin{description}
+  \item[Imagen:] pantalla negra. Se oye una cerilla que se enciende y aparece una
+        pequeña llama.
+  \item[Texto:] \textit{``Allí donde se queman libros, se acaba quemando también
+        a las personas.'' (H. Heine, 1821)}.
+\end{description}
+
+\subsection*{Escena 1. Alejandría (0:15--0:40)}
+\begin{description}
+  \item[Imagen:] rollos de papiro sobre una mesa, iluminados por velas. Poco a
+        poco el humo los cubre.
+  \item[Voz en \textit{off}:] ``Aquí estaba todo el saber del mundo antiguo:
+        matemáticas, medicina, astronomía. No ardió en una sola noche: se fue
+        perdiendo entre guerras y olvido. Nunca sabremos qué había en esos rollos.''
+\end{description}
+
+\subsection*{Escena 2. China, 213 a.C. (0:40--1:00)}
+\begin{description}
+  \item[Imagen:] tablillas de bambú atadas que se echan a una hoguera.
+  \item[Voz en \textit{off}:] ``Un emperador quiso que solo existiera una forma
+        de pensar: la suya. Ordenó quemar los libros que contaban otra historia.''
+\end{description}
+
+\subsection*{Escena 3. Bagdad, 1258 (1:00--1:20)}
+\begin{description}
+  \item[Imagen:] libros que caen a un río; el agua se vuelve negra.
+  \item[Voz en \textit{off}:] ``Se dice que el Tigris bajó negro por la tinta de
+        los libros de la Casa de la Sabiduría.''
+\end{description}
+
+\subsection*{Escena 4. Maní, 1562 (1:20--1:40)}
+\begin{description}
+  \item[Imagen:] códices pintados de colores que se doblan con el fuego.
+  \item[Voz en \textit{off}:] ``Siglos de historia maya ardieron en una sola
+        tarde. Hoy apenas sobreviven cuatro códices.''
+\end{description}
+
+\subsection*{Escena 5. Berlín, 1933 (1:40--2:00)}
+\begin{description}
+  \item[Imagen:] una plaza de noche, siluetas que lanzan libros a una gran hoguera.
+  \item[Voz en \textit{off}:] ``Primero quemaron los libros. Después vinieron
+        las personas.''
+\end{description}
+
+\subsection*{Escena 6. Sarajevo, 1992 (2:00--2:15)}
+\begin{description}
+  \item[Imagen:] hojas quemadas que caen como si fuera nieve.
+  \item[Voz en \textit{off}:] ``Para destruir a un pueblo, primero se destruye
+        su memoria.''
+\end{description}
+
+\subsection*{Escena 7. El presente: la guillotina (2:15--2:45)}
+\begin{description}
+  \item[Imagen:] \textbf{cambio brusco}. Luz blanca de fábrica. Una guillotina
+        corta el lomo de un libro; las hojas pasan por un escáner y terminan en
+        un contenedor de reciclaje.
+  \item[Voz en \textit{off}:] ``Hoy los libros ya no arden. Se compran, se cortan,
+        se escanean y se tiran. No para que olvidemos, sino para alimentar a una
+        máquina. Y para que alguien gane dinero con ello.''
+\end{description}
+
+\subsection*{Escena 8. El apagón (2:45--3:30)}
+\begin{description}
+  \item[Imagen:] una persona frente a una pantalla. Cada vez que le pide algo a
+        la IA (``hazme el trabajo'', ``resúmeme el libro'', ``piensa por mí''),
+        una luz de la habitación se apaga. Al final solo queda la luz de la
+        pantalla sobre su cara.
+  \item[Voz en \textit{off}:] ``Le dimos todos los libros. Le dimos nuestras
+        preguntas. Y ella nos dio respuestas\ldots{} hasta que dejamos de hacernos
+        preguntas.''
+  \item[Efecto:] la pantalla se apaga. Negro total.
+\end{description}
+
+\subsection*{Escena 9. Cierre (3:30--3:50)}
+\begin{description}
+  \item[Imagen:] en la oscuridad se enciende una pequeña lámpara. Alguien abre un
+        libro de papel y empieza a leer.
+  \item[Texto final:] \textcolor{red}{\textbf{Los libros no arden. Pero nosotros
+        podemos apagarnos.}}
+\end{description}
+
+\section{Notas de producción}
+
+\begin{enumerate}
+  \item \textbf{Seguridad}: \emph{no se usará fuego real} sobre libros. Las
+        llamas se harán con efectos digitales, vídeos de archivo libres de
+        derechos o velas grabadas de cerca. Si se graba alguna llama real, será
+        al aire libre, con un adulto, un extintor o un cubo de agua cerca, y
+        quemando solo papel de reciclar.
+  \item \textbf{No destruir libros de verdad}: sería contradictorio con el mensaje
+        del vídeo. Se usarán libros de atrezo, cajas forradas o papel impreso.
+  \item \textbf{Material}: móvil para grabar, una lámpara, velas, papel y un
+        programa de edición gratuito (por ejemplo, CapCut o DaVinci Resolve).
+  \item \textbf{Música y sonidos}: libres de derechos (por ejemplo, la biblioteca
+        de audio de YouTube), con crepitar de fuego en las escenas históricas y un
+        zumbido eléctrico en las escenas del presente.
+  \item \textbf{Rigor}: los textos en pantalla con fechas y datos se revisarán con
+        las fuentes de la bibliografía.
+\end{enumerate}
+
 
 % ---------------------------------------------------------------------
 \backmatter

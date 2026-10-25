@@ -16,4 +16,5 @@ Documento LaTeX (clase `book`) sobre la IA y el escaneo destructivo de libros (*
 
 En TeXstudio: `pdflatex main` → `bibtex main` → `pdflatex main` → `pdflatex main`.
 
-Antes de entregar, cambia `\newcommand{\autor}{Nombre y Apellidos}` en `main.tex` por tu nombre.
+El documento tiene 6 capítulos; el último es la idea y el guion del vídeo final.
+El logo no está en el repositorio: súbelo en Overleaf a `figuras/` como `logo-umu.png`.
