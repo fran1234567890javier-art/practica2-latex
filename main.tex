@@ -27,12 +27,24 @@
 \newcommand{\autor}{Nombre y Apellidos}
 \newcommand{\asignatura}{Informática y Edición Digital}
 
-% Logo de la Universidad de Murcia: guarda la imagen como figuras/logo-umu.png
-% (si el archivo no existe, el documento compila igualmente sin logo)
+% Logo de la Universidad de Murcia: sube la imagen como figuras/logo-umu
+% (vale .png, .jpg, .jpeg o .pdf). También se busca junto a main.tex.
+% Si no se encuentra, la portada muestra un aviso en un recuadro rojo.
+\newcommand{\logoumuarchivo}{}
+\newcommand{\buscarlogo}[1]{%
+  \ifx\logoumuarchivo\empty\IfFileExists{#1}{\renewcommand{\logoumuarchivo}{#1}}{}\fi}
 \newcommand{\logoumu}{%
-  \IfFileExists{figuras/logo-umu.png}%
-    {\includegraphics[width=0.6\textwidth]{logo-umu.png}\\[2.5em]}%
-    {}}
+  \buscarlogo{figuras/logo-umu.png}\buscarlogo{figuras/logo-umu.jpg}%
+  \buscarlogo{figuras/logo-umu.jpeg}\buscarlogo{figuras/logo-umu.pdf}%
+  \buscarlogo{logo-umu.png}\buscarlogo{logo-umu.jpg}%
+  \buscarlogo{logo-umu.jpeg}\buscarlogo{logo-umu.pdf}%
+  \ifx\logoumuarchivo\empty
+    \fcolorbox{red}{white}{\parbox{0.6\textwidth}{\centering\normalsize\color{red}
+      Falta el logo: sube la imagen a la carpeta\\
+      \texttt{figuras} con el nombre \texttt{logo-umu.png}}}\\[2.5em]%
+  \else
+    \includegraphics[width=0.6\textwidth]{\logoumuarchivo}\\[2.5em]%
+  \fi}
 
 \title{\logoumu
        \Huge\textbf{Quemar libros para alimentar máquinas}\\[0.6em]
